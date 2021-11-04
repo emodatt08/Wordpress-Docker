@@ -11,4 +11,7 @@ docker-compose up -d --build
 ```
 
 ## Helper scripts
-Added wp-cli so commands like "$ docker-compose run --rm wp user list" can be used to get all users
+Added wp-cli so you can run commands like:
+$ docker-compose run --rm wp user list  --- to get all users
+$ docker-compose run --rm wp plugin install wordpress-seo --- to install wordpress seo plugin
+$ docker-compose run --rm wp plugin activate wordpress-seo --- to activate wordpress seo plugin
