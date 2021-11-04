@@ -6,6 +6,9 @@ services:
     build:
       context: .
       dockerfile: nginx.dockerfile
+    depends_on:
+      - php
+      - mysql
     ports:
       - 8007:80
       - 4443:443
@@ -29,7 +32,7 @@ services:
       dockerfile: php.dockerfile
     volumes:
       - ./wordpress:/var/www/html:delegated
-      
+
   wp:
     build:
       context: .
