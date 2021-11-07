@@ -1,0 +1,15 @@
+curl --location --request POST 'http://10.2.2.198:8080/ext/execute?action=retrieve_pay_advice' --header 'Authorization: $2y$10$qvzJBqUaJ4w7Eyz1jpkBIecFLgz.RagBi3X7EefEpTLPIm2H69ecq' --header 'Content-Type: application/json' --data-raw '{
+            "meta": {
+                "fbank_code": "10",
+                "fbank_branch_code": "100100",
+                "fteller_name": "DANIEL TWUMASI",
+                "fteller_user_name": "DTWUMASI"
+           },
+           "payadvice": "100012021031900001",
+           "flag": "C"
+       }'
+
+curl -f -k --location --request POST 'https://10.170.132.11/teller/ssnit/api/v1/lookup' \ --data-raw ''
+
+       sudo route add -net 10.2.2.198 -netmask 255.255.255.255 -gateway 10.170.132.5
+       sudo route add -net 10.2.2.198 -netmask 255.255.255.255 -gateway 10.170.132.255
