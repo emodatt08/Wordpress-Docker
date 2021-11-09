@@ -6,10 +6,16 @@ class Gallery{
 
     }
 
-    private function unsplash(){
+    private function unsplash($key, $number, $category=null) : string {
+        return "";
+    }
 
+    private function shutterstock($key, $number, $category=null) : string {
+        return "";
     }
 
 
-    
+    private function gettyImages($key, $number, $category=null):string{
+        return "";
+    }
 }
