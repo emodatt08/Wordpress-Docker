@@ -39,7 +39,7 @@ class GalleryAdmin{
         </nav>
     
         <div class="tab-content">
-        <?php switch($tab) :
+        <?php switch($active_tab) :
             case 'unsplash':
                 echo 'Unsplash'; 
             break;

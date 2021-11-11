@@ -1,0 +1,7 @@
+#pull-image{
+    background-color:chocolate;
+    color:white;
+    border-color: chocolate;
+    display: flexbox;
+    flex-direction: column;
+}
