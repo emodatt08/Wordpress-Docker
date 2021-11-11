@@ -15,14 +15,16 @@
 
   //Global options variable
   $ffl_options = get_option('ffl_settings');
- //Load Scripts
+  //Load Scripts
  require_once(plugin_dir_path(__DIR__).'/appsmo_gallery/classes/scripts.class.php');
- require_once(plugin_dir_path(__DIR__).'/appsmo_gallery/classes/gallery.class.php');
- //Load Contents
- require_once(plugin_dir_path(__DIR__).'/appsmo_gallery/classes/appsmo_gallery-footer-links-content.php');
 
- if(is_admin()){
-  //Load Settings
-  require_once(plugin_dir_path(__DIR__).'/appsmo_gallery/classes/admin.class.php');
- }
+  if(is_admin()){
+    //Load Admin
+    require_once(plugin_dir_path(__DIR__).'/appsmo_gallery/classes/admin.class.php');
+   }
+
+
+ require_once(plugin_dir_path(__DIR__).'/appsmo_gallery/classes/gallery.class.php');
+
+
  
