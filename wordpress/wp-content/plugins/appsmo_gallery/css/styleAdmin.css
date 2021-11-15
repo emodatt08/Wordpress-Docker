@@ -5,3 +5,8 @@
     display: flexbox;
     flex-direction: column;
 }
+
+
+#image_count{
+    width:50px;
+}

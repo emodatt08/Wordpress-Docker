@@ -1,31 +1,44 @@
-<?php
 
-/**
- * Provides an admin area view for the AppsMo Gallery Plugin
- *
- * This file is used to markup the admin-facing aspects of the AppsMo Gallery Plugin.
- *
- * @link       appsmo.com/team
- * @since      1.0.0
- *
- * @package    appsmo_gallery
- * @subpackage appsmo_gallery/classes/views
- */
-?>
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <div class="wrap">
-		        <div id="icon-themes" class="icon32"></div>  
-		        <h2>General Settings</h2>  
-		         <!--NEED THE settings_errors below so that the errors/success messages are shown after submission - wasn't working once we started using add_menu_page and stopped using add_options_page so needed this-->
-				<?php settings_errors(); ?>  
-		        <form method="POST" action="options.php">  
-		            <?php 
-		                settings_fields( 'appsmo_gallery_general_settings' );
-		                do_settings_sections( 'appsmo_gallery_general_settings' ); 
-		            ?>             
-					<p class="submit">
-						<input type="submit" name="submit" id="submit" class="button button-primary" value="Save Changes">
-						<input type="button" id="pull-image" name="pull" class="button button-primary" value="Pull Images">
-				   </p>
-		        </form> 
+<h1>General Settings</h1>
+
+<form method="post" action="options.php">
+    <?php settings_fields( 'appsmo-gallery-settings-group' ); ?>
+    <?php do_settings_sections( 'appsmo-gallery-settings-group' ); ?>
+    <table class="form-table">
+        <tr valign="top">
+        <th scope="row">Add Category</th>
+        <td><input type="text" name="appsmo_gallery_category_dropdown_settings" /></td>
+        </tr>
+
+		<?php $options = get_option( 'appsmo_gallery_category_dropdown_settings' ); ?>
+		<tr valign="top">
+        <th scope="row">All categories</th>
+        <td>
+			<select name='dropdown_settings[select_field_0]'>
+				<option value='animals' <?php selected( $options['appsmo_gallery_category_dropdown_0'], 1 ); ?>>Animals</option>
+				<option value='fashion' <?php selected( $options['appsmo_gallery_category_dropdown_0'], 2 ); ?>>Fashion</option>
+				<option value='film' <?php selected( $options['appsmo_gallery_category_dropdown_0'], 4 ); ?>>Film</option>
+				<option value='people' <?php selected( $options['appsmo_gallery_category_dropdown_0'], 5 ); ?>>People</option>
+				<option value='health' <?php selected( $options['appsmo_gallery_category_dropdown_0'], 6 ); ?>>Health & Wellness</option>
+				<option value='travel' <?php selected( $options['appsmo_gallery_category_dropdown_0'], 7 ); ?>>Travel</option>
+				<option value='nature' <?php selected( $options['appsmo_gallery_category_dropdown_0'], 8 ); ?>>Nature</option>
+				<option value='architecture' <?php selected( $options['appsmo_gallery_category_dropdown_0'], 9 ); ?>>Architecture</option>
+				<option value='foodanddrink' <?php selected( $options['appsmo_gallery_category_dropdown_0'], 10 ); ?>>Food & Drink</option>
+			</select>
+		</td>
+        </tr>
+		
+
+         
+        <tr valign="top">
+        <th scope="row">Image count</th>
+        <td><input type="number" id="image_count" name="appsmo_gallery_count" value="<?php echo esc_attr( get_option('appsmo_gallery_count') ); ?>" /></td>
+        </tr>
+        
+    </table>
+    
+    <?php submit_button(); ?>
+
+</form>
 </div>
