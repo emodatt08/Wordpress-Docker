@@ -35,6 +35,7 @@ class GalleryAdmin{
 
         //register our unsplash settings
         register_setting( 'appsmo-gallery-unsplash-settings-group', 'appsmo_unsplash_gallery_api_key' );
+        register_setting( 'appsmo-gallery-unsplash-settings-group', 'appsmo_unsplash_gallery_secret_key' );
         register_setting( 'appsmo-gallery-unsplash-settings-group', 'appsmo_unsplash_gallery_categories' );
     }
     
@@ -44,10 +45,10 @@ class GalleryAdmin{
         <div class="wrap">
         <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
         <nav class="nav-tab-wrapper">
-            <a href="?page=<?php echo $this->plugin_name; ?>" class="nav-tab <?php if($active_tab===null):?>nav-tab-active<?php endif; ?>">General</a>
-            <a href="?page=<?php echo $this->plugin_name; ?>&tab=unsplash" class="nav-tab <?php if($active_tab==='unsplash'):?>nav-tab-active<?php endif; ?>">Unsplash</a>
-            <a href="?page=<?php echo $this->plugin_name; ?>&tab=getty" class="nav-tab <?php if($active_tab==='getty'):?>nav-tab-active<?php endif; ?>">Getty Images</a>
-            <a href="?page=<?php echo $this->plugin_name; ?>&tab=shutter" class="nav-tab <?php if($active_tab==='shutter'):?>nav-tab-active<?php endif; ?>">ShutterStock</a>
+            <a href="?page=<?php echo $this->plugin_name; ?>" class="nav-tab <?php if($active_tab===null):?>nav-tab-active<?php endif; ?>"><?php echo __("General", $this->plugin_title); ?> </a>
+            <a href="?page=<?php echo $this->plugin_name; ?>&tab=unsplash" class="nav-tab <?php if($active_tab==='unsplash'):?>nav-tab-active<?php endif; ?>"><?php echo __("Unsplash", $this->plugin_title); ?> </a>
+            <a href="?page=<?php echo $this->plugin_name; ?>&tab=getty" class="nav-tab <?php if($active_tab==='getty'):?>nav-tab-active<?php endif; ?>"><?php echo __("Getty Images", $this->plugin_title); ?></a>
+            <a href="?page=<?php echo $this->plugin_name; ?>&tab=shutter" class="nav-tab <?php if($active_tab==='shutter'):?>nav-tab-active<?php endif; ?>"><?php echo __("ShutterStock", $this->plugin_title); ?></a>
           
         </nav>
     
