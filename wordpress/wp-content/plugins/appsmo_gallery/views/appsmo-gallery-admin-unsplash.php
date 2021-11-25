@@ -16,9 +16,27 @@
         <td><input type="text" id="appsmo-unsplash-id" name="appsmo_unsplash_gallery_secret_key" value="<?php echo esc_attr( get_option('appsmo_unsplash_gallery_secret_key') ); ?>" /></td>
         </tr>
 
+        <tr valign="top">
+        <th scope="row">Retrieve By:</th>
+        <td>
+			<select name='retrieve_type'>
+                <option selected><?php echo __("Please choose an image retrieval process", $this->plugin_title); ?></option>
+				<option value='search_by_query' ><?php echo __("Search Criteria/Query", $this->plugin_title); ?></option>
+                <option value='search_by_category' ><?php echo __("Search Category", $this->plugin_title); ?></option>
+			</select>
+		</td>
+        </tr>
+
+        <tr valign="top" id="appsmo-gallery-search-criteria">
+        <th scope="row"><?php echo __("Search Criteria/Query", $this->plugin_title); ?></th>
+        <td><input type="text" id="appsmo-search-criteria-input"  /></td>
+        </tr>
+
+
         <?php $options = get_option( 'appsmo_gallery_category_dropdown_settings' ); ?>
-		<tr valign="top">
-        <th scope="row">All categories</th>
+		
+        <tr valign="top" id="appsmo-gallery-category">
+        <th scope="row"><?php echo __("All categories", $this->plugin_title); ?></th>
         <td>
 			<select name='dropdown_settings[select_field_0]'>
 				<option value='animals' <?php selected( $options['appsmo_gallery_category_dropdown_0'], 1 ); ?>><?php echo __("Animals", $this->plugin_title); ?></option>

@@ -30,7 +30,7 @@ class GalleryAdmin{
 
     public function registerAppsmoGalleryPluginSettings() {
         //register our general settings
-        register_setting( 'appsmo-gallery-settings-group', 'appsmo_gallery_category' );
+        register_setting( 'appsmo-gallery-settings-group', 'appsmo_gallery_url_path' );
         register_setting( 'appsmo-gallery-settings-group', 'appsmo_gallery_count' );
 
         //register our unsplash settings
