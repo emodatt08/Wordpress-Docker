@@ -11,6 +11,8 @@ $(document).ready(function(){
 
 
 function toggleQuery(query){
+    $('#appsmo-gallery-search-criteria').hide();
+        $('#appsmo-gallery-category').hide();
     if(query ==="search_by_query"){
         $('#appsmo-gallery-search-criteria').show();
         $('#appsmo-gallery-category').hide();      
