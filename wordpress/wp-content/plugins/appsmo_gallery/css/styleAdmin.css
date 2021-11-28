@@ -11,7 +11,7 @@
     width:50px;
 }
 
-#appsmo-unsplash-id{
+#appsmo-unsplash-id, #appsmo-gallery-unsplash-url{
     width:450px; 
 }
 #appsmo-gallery-image-path{

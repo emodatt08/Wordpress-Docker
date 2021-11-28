@@ -1,12 +1,12 @@
 <?php
-
+require_once   WP_PLUGIN_DIR.'/appsmo_gallery/classes/services.class.php';
 class Gallery{
-
+    private $service;
     public function __construct(){
-
+        $this->service = (new Services);
     }
 
-    private function unsplash($key, $number, $category=null) : string {
+    public function unsplash() : string {
         return "";
     }
 
@@ -17,5 +17,9 @@ class Gallery{
 
     private function gettyImages($key, $number, $category=null):string{
         return "";
+    }
+
+    private function downLoadImages(){
+        
     }
 }

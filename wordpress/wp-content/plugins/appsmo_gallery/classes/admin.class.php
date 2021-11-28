@@ -32,11 +32,16 @@ class GalleryAdmin{
         //register our general settings
         register_setting( 'appsmo-gallery-settings-group', 'appsmo_gallery_url_path' );
         register_setting( 'appsmo-gallery-settings-group', 'appsmo_gallery_count' );
+        register_setting( 'appsmo-gallery-settings-group', 'appsmo_gallery_overwrite_photo' );
+        register_setting( 'appsmo-gallery-settings-group', 'appsmo_gallery_store_photo' );
 
         //register our unsplash settings
         register_setting( 'appsmo-gallery-unsplash-settings-group', 'appsmo_unsplash_gallery_api_key' );
         register_setting( 'appsmo-gallery-unsplash-settings-group', 'appsmo_unsplash_gallery_secret_key' );
         register_setting( 'appsmo-gallery-unsplash-settings-group', 'appsmo_unsplash_gallery_categories' );
+       
+        
+        
     }
     
     public function displayAppsMoGalleryPluginAdminDashboard() : void {

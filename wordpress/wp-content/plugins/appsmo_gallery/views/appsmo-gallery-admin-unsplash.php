@@ -6,6 +6,21 @@
     <?php settings_fields( 'appsmo-gallery-unsplash-settings-group' ); ?>
     <?php do_settings_sections( 'appsmo-gallery-unsplash-settings-group' ); ?>
     <table class="form-table">
+    <?php 
+            $base_url= get_option('appsmo_gallery_unsplash_base_url');
+            if(!empty($base_url)){
+                $base_url = $base_url;
+            }else{
+                $base_url = "https://api.unsplash.com/";
+            }
+        ?>
+
+        <tr valign="top">
+            <th scope="row"><?php echo __("Unsplash API Url", $this->plugin_title); ?> </th>
+            <td><input type="text" id="appsmo-gallery-unsplash-url" name="appsmo_gallery_unsplash_base_url" value="<?php echo 
+    esc_attr($base_url); ?>"/></td>
+        </tr> 
+
         <tr valign="top">
         <th scope="row"><?php echo __("Access Key", $this->plugin_title); ?></th>
         <td><input type="text" id="appsmo-unsplash-id" name="appsmo_unsplash_gallery_api_key" value="<?php echo esc_attr( get_option('appsmo_unsplash_gallery_api_key') ); ?>" /></td>
@@ -15,7 +30,7 @@
         <th scope="row"><?php echo __("Secret Key", $this->plugin_title); ?></th>
         <td><input type="text" id="appsmo-unsplash-id" name="appsmo_unsplash_gallery_secret_key" value="<?php echo esc_attr( get_option('appsmo_unsplash_gallery_secret_key') ); ?>" /></td>
         </tr>
-
+        
         <tr valign="top">
         <th scope="row">Retrieve By:</th>
         <td>
@@ -23,6 +38,7 @@
                 <option selected><?php echo __("Please choose an image retrieval process", $this->plugin_title); ?></option>
 				<option value='search_by_query' ><?php echo __("Search Criteria/Query", $this->plugin_title); ?></option>
                 <option value='search_by_category' ><?php echo __("Search Category", $this->plugin_title); ?></option>
+                <option value='get_all_photos' ><?php echo __("Get your photos", $this->plugin_title); ?></option>
 			</select>
 		</td>
         </tr>
@@ -31,6 +47,8 @@
         <th scope="row"><?php echo __("Search Criteria/Query", $this->plugin_title); ?></th>
         <td><input type="text" id="appsmo-search-criteria-input"  /></td>
         </tr>
+
+       
 
 
         <?php $options = get_option( 'appsmo_gallery_category_dropdown_settings' ); ?>
