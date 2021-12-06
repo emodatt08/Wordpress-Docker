@@ -6,8 +6,9 @@ class Gallery{
         $this->service = (new Services);
     }
 
-    public function unsplash() : string {
-        return "";
+    public function unsplash() {
+        $unsplash = $this->service->getPhotos("unsplash");
+        return $unsplash;
     }
 
     private function shutterstock($key, $number, $category=null) : string {
@@ -23,3 +24,5 @@ class Gallery{
         
     }
 }
+
+$gallery = new Gallery();

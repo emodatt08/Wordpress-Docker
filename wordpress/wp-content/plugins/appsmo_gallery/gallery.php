@@ -18,13 +18,15 @@
   //Load Scripts
  require_once(plugin_dir_path(__DIR__).'/appsmo_gallery/classes/scripts.class.php');
 
-  if(is_admin()){
-    //Load Admin
-    require_once(plugin_dir_path(__DIR__).'/appsmo_gallery/classes/admin.class.php');
-   }
-
 
  require_once(plugin_dir_path(__DIR__).'/appsmo_gallery/classes/gallery.class.php');
+
+ if(is_admin()){
+  //Load Admin
+  require_once(plugin_dir_path(__DIR__).'/appsmo_gallery/classes/admin.class.php');
+  //Load Admin Ajax
+  require_once(plugin_dir_path(__DIR__).'/appsmo_gallery/ajax-gallery.php');
+ }
 
 
  
