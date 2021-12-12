@@ -95,6 +95,7 @@ class Services{
                     [
                         'show' => $data->urls->regular,
                         'download' => $data->links->download,
+                        'alt' => $data->description,
                         'id' => $data->id
                     ];
                 }

@@ -93,6 +93,9 @@
         </tr>
     </table>
     
+    <div class="appsmo-gallery-image-grid">
+
+    </div>
     
    
 </form>
