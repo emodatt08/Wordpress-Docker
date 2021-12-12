@@ -17,3 +17,42 @@
 #appsmo-gallery-image-path{
     width:650px; 
 }
+
+.appsmo-gallery-unsplash-button{
+    display: flex;
+    height: 33px;
+    padding: 0;
+    background: black;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: "Quicksand", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.appsmo-gallery-unsplash-button:hover {
+    background: white;
+    color: black;
+  }
+  
+  .appsmo-gallery-unsplash-button:active {
+    background: black;
+  }
+  
+  .appsmo-gallery-unsplash-button__text,
+  .appsmo-gallery-unsplash-button__icon {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 24px;
+    height: 100%;
+  }
+  
+  .appsmo-gallery-unsplash-button__icon {
+    font-size: 1.5em;
+ 
+  }
+  

@@ -70,10 +70,22 @@
 			</select>
 		</td>
         </tr>
-        
+        <tr valign="top">
+            <td>
+                <?php submit_button(); ?>
+            </td>
+            <td>
+            <button type="button" class="appsmo-gallery-unsplash-button">
+                <span class="appsmo-gallery-unsplash-button__text">Download</span>
+                <span class="appsmo-gallery-unsplash-button__icon">
+                    <ion-icon name="cloud-download-outline"></ion-icon>
+                </span>
+            </button>
+            </td>
+        </tr>
     </table>
     
-    <?php submit_button(); ?>
-
+    
+   
 </form>
 </div>

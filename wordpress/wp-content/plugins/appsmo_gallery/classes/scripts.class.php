@@ -16,6 +16,7 @@ class Scripts{
     public function ag_admin_add_scripts():void{
             wp_enqueue_script('ag-admin-main-script', plugins_url().'/appsmo_gallery/js/appsmo-gallery.js', array('jquery'), '', true);
             wp_enqueue_script('ag-admin-main-ajax-script', plugins_url().'/appsmo_gallery/js/appsmo-gallery-ajax.js','', '', true);
+            wp_enqueue_script('ag-admin-ionicon-script', 'https://unpkg.com/ionicons@5.4.0/dist/ionicons.js');
             wp_enqueue_style('ag-admin-main-style', plugins_url().'/appsmo_gallery/css/styleAdmin.css');
     }
     
