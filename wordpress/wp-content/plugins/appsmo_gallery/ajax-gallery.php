@@ -18,8 +18,8 @@ function appsmo_gallery_enqueue($hook) {
 add_action( 'wp_ajax_my_action', 'appsmo_gallery_action' );
 function appsmo_gallery_action() {
 	$gallery = new Gallery();
-	$whatever = intval( $_POST['service'] );
-	$service = $gallery->getService();
+	$service_type = intval( $_POST['service'] );
+	$service = $gallery->getService($service_type);
         echo $service;
 	wp_die();
 }

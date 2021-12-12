@@ -6,8 +6,8 @@ class Gallery{
         $this->service = (new Services);
     }
 
-    public function getService() {
-        $unsplash = $this->service->getPhotos("unsplash");
+    public function getService($service) {
+        $unsplash = $this->service->getPhotos($service);
         return $unsplash;
     }
     private function downLoadImages(){
