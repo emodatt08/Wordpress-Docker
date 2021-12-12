@@ -27,8 +27,8 @@ class Services{
             
                   $params = "";
                   $url = get_option("appsmo_gallery_unsplash_base_url").'photos';
+                  return $url;
                   $makeCall = $this->curlCall($url, $headers, $params);
-                  print_r($makeCall); die;
                   return $makeCall;
             break;
 

@@ -14,6 +14,6 @@ var retrieveImage = (e) => {
 	};
     console.log(data);
 	jQuery.post(ajax_object.ajax_url, data, function(response) {
-		alert('Got this from the server: ' + response);
+		console.log('Got this from the server: ' + response);
 	});
 }

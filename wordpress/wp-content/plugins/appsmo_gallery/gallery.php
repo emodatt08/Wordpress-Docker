@@ -16,6 +16,7 @@
   //Global options variable
   $ffl_options = get_option('ffl_settings');
   //Load Scripts
+ require_once(plugin_dir_path(__DIR__).'/appsmo_gallery/ajax-gallery.php');
  require_once(plugin_dir_path(__DIR__).'/appsmo_gallery/classes/scripts.class.php');
 
 
@@ -25,7 +26,7 @@
   //Load Admin
   require_once(plugin_dir_path(__DIR__).'/appsmo_gallery/classes/admin.class.php');
   //Load Admin Ajax
-  require_once(plugin_dir_path(__DIR__).'/appsmo_gallery/ajax-gallery.php');
+  
  }
 
 
