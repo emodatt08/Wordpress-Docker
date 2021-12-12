@@ -10,7 +10,8 @@ function appsmo_gallery_action() {
 	$gallery = new Gallery();
 	$service_type = $_POST['service'];
 	$service = $gallery->getService($service_type);
-        echo $service;
+	header("Content-Type:application/json");
+	echo json_encode($service);
 	wp_die();
 }
 

@@ -39,8 +39,7 @@ class GalleryAdmin{
         register_setting( 'appsmo-gallery-unsplash-settings-group', 'appsmo_unsplash_gallery_api_key' );
         register_setting( 'appsmo-gallery-unsplash-settings-group', 'appsmo_unsplash_gallery_secret_key' );
         register_setting( 'appsmo-gallery-unsplash-settings-group', 'appsmo_unsplash_gallery_categories' );
-       
-        
+        register_setting( 'appsmo-gallery-unsplash-settings-group', 'appsmo_gallery_unsplash_base_url' );
         
     }
     

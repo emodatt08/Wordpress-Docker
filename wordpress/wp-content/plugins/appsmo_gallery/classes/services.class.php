@@ -18,7 +18,7 @@ class Services{
      * @return void
      */
     private function getServicePhotoData($service){
-        $response = "";
+   
         switch($service){
             case"unsplash":
                 $headers = array(
@@ -27,13 +27,15 @@ class Services{
             
                   $params = "";
                   $url = get_option("appsmo_gallery_unsplash_base_url").'photos';
-                  return $url;
                   $makeCall = $this->curlCall($url, $headers, $params);
-                  return $makeCall;
+                  $response = json_decode($makeCall);
+                  if(isset($response[0]->id))
+                    return $this->prepareResponse($service, $response);
+                else
+                    return $this->prepareResponse("", "");
             break;
 
         }
-        return $response;
     }
 
     /**
@@ -42,7 +44,7 @@ class Services{
      * @param [type] $url
      * @param [type] $headers
      * @param [type] $params
-     * @return void
+     * @return string
      */
     private function curlCall($url, $headers, $params){
         $curl = curl_init();
@@ -65,6 +67,42 @@ class Services{
         return $response;
     }
 
+
+    private function prepareResponse($service, $response):array{
+        switch($service){
+            case "unsplash":
+                return [
+                    'responseCode' => '200',
+                    'responseMessage' => 'Successful',
+                    'data' => $this->getPhotoDataSet('unsplash', $response)
+                ];
+            break;
+            default:
+            return [
+                'responseCode' => '403',
+                'responseMessage' => 'failure'
+            ];
+        }
+    }
+
+
+    private function getPhotoDataSet($service, $response){
+        $photoData = [];
+        switch($service){
+            case 'unsplash':
+                foreach($response as $data){
+                    $photoData[] =    
+                    [
+                        'show' => $data->urls->regular,
+                        'download' => $data->links->download,
+                        'id' => $data->id
+                    ];
+                }
+            break;
+        }
+
+        return $photoData;
+    }
 
 
     

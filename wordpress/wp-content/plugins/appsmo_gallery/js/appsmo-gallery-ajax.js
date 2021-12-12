@@ -14,6 +14,8 @@ var retrieveImage = (e) => {
 	};
     console.log(data);
 	jQuery.post(ajax_object.ajax_url, data, function(response) {
-		console.log('Got this from the server: ' + response);
+		if(response.responseCode === "200"){
+            console.log(response.data)
+        }
 	});
 }
