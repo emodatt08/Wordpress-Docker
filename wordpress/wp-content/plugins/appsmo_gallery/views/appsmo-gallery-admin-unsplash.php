@@ -29,7 +29,9 @@
         <th scope="row"><?php echo __("Secret Key", $this->plugin_title); ?></th>
         <td><input type="text" id="appsmo-unsplash-id" name="appsmo_unsplash_gallery_secret_key" value="<?php echo esc_attr( get_option('appsmo_unsplash_gallery_secret_key') ); ?>" /></td>
         </tr>
-        
+
+        <input type="hidden" name="service" value="unsplash">
+
         <tr valign="top">
         <th scope="row">Retrieve By:</th>
         <td>

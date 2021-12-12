@@ -17,10 +17,10 @@ function appsmo_gallery_enqueue($hook) {
 // Same handler function...
 add_action( 'wp_ajax_my_action', 'appsmo_gallery_action' );
 function appsmo_gallery_action() {
-	global $wpdb;
-	$whatever = intval( $_POST['whatever'] );
-	$whatever += 10;
-        echo $whatever;
+	$gallery = new Gallery();
+	$whatever = intval( $_POST['service'] );
+	$service = $gallery->getService();
+        echo $service;
 	wp_die();
 }
 

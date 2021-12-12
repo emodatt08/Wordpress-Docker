@@ -6,23 +6,12 @@ class Gallery{
         $this->service = (new Services);
     }
 
-    public function unsplash() {
+    public function getService() {
         $unsplash = $this->service->getPhotos("unsplash");
         return $unsplash;
     }
-
-    private function shutterstock($key, $number, $category=null) : string {
-        return "";
-    }
-
-
-    private function gettyImages($key, $number, $category=null):string{
-        return "";
-    }
-
     private function downLoadImages(){
         
     }
 }
 
-$gallery = new Gallery();
