@@ -8,10 +8,23 @@ class Scripts{
          //if admin add scripts
         if(is_admin()){
             add_action('admin_init',array($this, 'ag_admin_add_scripts'));
+            add_action( 'admin_enqueue_scripts',array($this, 'appsmo_gallery_enqueue')  );
         }
     }
 
    
+    public function appsmo_gallery_enqueue($hook) {
+        if( 'index.php' != $hook ) {
+        // Only applies to dashboard panel
+        return;
+        }
+            
+        wp_enqueue_script( 'appsmo-gallery-ajax-script', plugins_url( '/js/appsmo-gallery-ajax.js', __FILE__ ), array('jquery') );
+    
+        // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
+        wp_localize_script( 'appsmo-gallery-ajax-script', 'ajax_object',
+                array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 'we_value' => 1234 ) );
+    }
 
     public function ag_admin_add_scripts():void{
             wp_enqueue_script('ag-admin-main-script', plugins_url().'/appsmo_gallery/js/appsmo-gallery.js', array('jquery'), '', true);

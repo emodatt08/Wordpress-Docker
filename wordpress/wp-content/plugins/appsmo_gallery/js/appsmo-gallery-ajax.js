@@ -1,7 +1,7 @@
 var $=jQuery.noConflict();
 
 $(document).ready(function(){
-    $('select').on('click', function(e) {
+    $('.appsmo-gallery-unsplash-button').on('click', function(e) {
         retrieveImage(e);
       });
    
@@ -10,9 +10,9 @@ $(document).ready(function(){
 var retrieveImage = (e) => {
     var data = {
 		'action': 'appsmo_gallery_action',
-		'service': ajax_object.we_value      // We pass php values differently!
+		'service': $("input[name=service]").val()      
 	};
-	// We can also pass the url value separately from ajaxurl for front end AJAX implementations
+    console.log(data);
 	jQuery.post(ajax_object.ajax_url, data, function(response) {
 		alert('Got this from the server: ' + response);
 	});
