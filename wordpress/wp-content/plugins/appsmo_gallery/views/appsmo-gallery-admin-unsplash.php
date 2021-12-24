@@ -31,6 +31,7 @@
         </tr>
 
         <input type="hidden" name="service" value="unsplash">
+        <input type="hidden" src="<?php echo plugins_url() . '/appsmo_gallery/img/download.png' ?> " class="appsmo-gallery-download-icon-url">
 
         <tr valign="top">
         <th scope="row">Retrieve By:</th>
@@ -96,7 +97,8 @@
     <div class="appsmo-gallery-image-grid">
 
     </div>
-    
+    <?php require_once   WP_PLUGIN_DIR.'/appsmo_gallery/views/partials/gallery-modal.php';?>
    
 </form>
 </div>
+

@@ -15,6 +15,8 @@ class Scripts{
     public function ag_admin_add_scripts():void{
             wp_enqueue_script('ag-admin-main-script', plugins_url().'/appsmo_gallery/js/appsmo-gallery.js', array('jquery'), '', true);
             wp_enqueue_script('ag-admin-ionicon-script', 'https://unpkg.com/ionicons@5.4.0/dist/ionicons.js');
+            wp_enqueue_style('ag-admin-download-button-font-awesome-script', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+            
             wp_enqueue_style('ag-admin-main-style', plugins_url().'/appsmo_gallery/css/styleAdmin.css');
             wp_enqueue_script( 'appsmo-gallery-ajax-script', plugins_url( '/appsmo_gallery/js/appsmo-gallery-ajax.js'), array('jquery') );
             // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
