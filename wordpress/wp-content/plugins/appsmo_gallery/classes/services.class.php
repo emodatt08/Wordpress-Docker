@@ -91,7 +91,8 @@ class Services{
                 return [
                     'responseCode' => '200',
                     'responseMessage' => 'Successful',
-                    'data' => $response
+                    'data' => $response,
+                    'img_url' => wp_get_upload_dir()['url'].'/'.$response['url_path']
                 ];
             break;
             default:
@@ -150,7 +151,7 @@ class Services{
         //make directory
         mkdir('./'.$dest_path,0777,true);
         
-        $dest_path = $dest_path.'/appsmo_gallery_'.date('YmdHis').'.'.$this->getExtension();
+        $dest_path = $dest_path.$this->getImageAttributes($image_url);
         
         if ($gzip_decode)
         {
@@ -162,7 +163,7 @@ class Services{
         }
 
         if(isset($response)){
-            $response = ['response' => $response, 'url_path' => $dest_path];
+            $response = ['response' => $response, 'url_path' => $this->getImageAttributes($image_url)];
             $response =  $this->prepareDownloadResponse("unsplash", $response);
         }else{
             $response = $this->prepareDownloadResponse("", "");
@@ -196,12 +197,12 @@ class Services{
         $response = curl_exec($ch);
         print_r('curl  method'); 
         mkdir('./'.$dest_path,0777,true);
-        $dest_path = $dest_path.'/appsmo_gallery_'.date('YmdHis').'.'.$this->getExtension();
+        $dest_path = $dest_path.$this->getImageAttributes($image_url);
         $fp = fopen($dest_path,'w');
         fwrite($fp,  $response);
         fclose($fp);
         if(isset($response)){
-            $response = ['response' => $response, 'url_path' => $dest_path];
+            $response = ['response' => $response, 'url_path' => $this->getImageAttributes($image_url)];
             $response =  $this->prepareDownloadResponse("unsplash", $response);
         }else{
             $response = $this->prepareDownloadResponse("", "");
