@@ -34,12 +34,14 @@ class GalleryAdmin{
         register_setting( 'appsmo-gallery-settings-group', 'appsmo_gallery_count' );
         register_setting( 'appsmo-gallery-settings-group', 'appsmo_gallery_overwrite_photo' );
         register_setting( 'appsmo-gallery-settings-group', 'appsmo_gallery_store_photo' );
-
+        register_setting( 'appsmo-gallery-settings-group', 'appsmo_gallery_image_type_dropdown_settings' );
         //register our unsplash settings
         register_setting( 'appsmo-gallery-unsplash-settings-group', 'appsmo_unsplash_gallery_api_key' );
         register_setting( 'appsmo-gallery-unsplash-settings-group', 'appsmo_unsplash_gallery_secret_key' );
         register_setting( 'appsmo-gallery-unsplash-settings-group', 'appsmo_unsplash_gallery_categories' );
         register_setting( 'appsmo-gallery-unsplash-settings-group', 'appsmo_gallery_unsplash_base_url' );
+      
+        
         
     }
     

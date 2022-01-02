@@ -10,8 +10,10 @@ class Gallery{
         $unsplash = $this->service->getPhotos($service);
         return $unsplash;
     }
-    private function downLoadImages(){
-        
+
+    public function downLoadImages($url){
+        $unsplash = $this->service->downloadAndStore($url);
+        return $unsplash;
     }
 }
 

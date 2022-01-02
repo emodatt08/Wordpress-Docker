@@ -13,7 +13,13 @@ $(document).ready(function(e){
 
     $('.close').click(function(){
         $('#appsMoGalleryModal').hide();
-    });   
+    }); 
+    
+    
+
+    $('.appsmo-download-single-image-button').on('click', function(e) {
+        downloadImage(e);
+    });
 });
 
 
@@ -49,6 +55,26 @@ var retrieveImage = (e) => {
 	});
 }
 
+var downloadImage = (e) => {
+    var data = {
+		'action': 'appsmo_gallery_action_download',
+		'image_url': $(".appsmo-edit-image").attr('src')      
+	};
+    console.log(data);
+  
+	jQuery.post(ajax_object.ajax_url, data, function(response) {
+        console.log("response: ", response);
+		if(response.responseCode === "200"){
+            console.log(response.data)
+            var photoData =  response.data.url;
+            $(".appsmo-edit-image").attr('src', photoData);
+            $(".appsmo_gallery_on_hover").attr('src', photoData);
+            setImageMessages('Image Downloaded', 'green');
+            
+        }
+	});
+}
+
 var setInLocalStorage = (data) =>{
     localStorage.setItem('photos', JSON.stringify(data));
 }
@@ -74,5 +100,11 @@ var hoverFunctionality = () =>{
             $('.appsmo-gallery-download-icon').hide();
         }
     });
+}
+
+var setImageMessages = (message, color) =>{
+    var msgElement = $('.appsmo-gallery-messages')
+    msgElement.text(message);
+    msgElement.css('color',color);
 }
 
