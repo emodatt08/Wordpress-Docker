@@ -149,21 +149,22 @@ class Services{
         $gzip_decode = ($content_encoding == 'gzip') ? true : false;
        
         //make directory
-        mkdir('./'.$dest_path,0777,true);
-        
-        $dest_path = $dest_path.$this->getImageAttributes($image_url);
+        mkdir($dest_path,0777,true);
+        $file_name = $this->getImageAttributes($image_url)['name'];
+        $dest_path = $dest_path.$file_name;
         
         if ($gzip_decode)
         {
             // Get contents and use gzdecode to "unzip" data
-            $response =  file_put_contents($dest_path, gzdecode( file_get_contents($dest_path, false, $context)));
+            $response =  file_put_contents($dest_path, gzdecode( file_get_contents($image_url, false, $context)));
         }else{
             // Use copy method
             $response =  copy($image_url, $dest_path);
         }
 
+
         if(isset($response)){
-            $response = ['response' => $response, 'url_path' => $this->getImageAttributes($image_url)];
+            $response = ['response' => $response, 'url_path' => $file_name];
             $response =  $this->prepareDownloadResponse("unsplash", $response);
         }else{
             $response = $this->prepareDownloadResponse("", "");
@@ -196,13 +197,14 @@ class Services{
         curl_setopt($ch, CURLOPT_USERAGENT, $agent);
         $response = curl_exec($ch);
         print_r('curl  method'); 
-        mkdir('./'.$dest_path,0777,true);
-        $dest_path = $dest_path.$this->getImageAttributes($image_url);
+        mkdir($dest_path,0777,true);
+        $file_name = $this->getImageAttributes($image_url)['name'];
+        $dest_path = $dest_path.$file_name;
         $fp = fopen($dest_path,'w');
         fwrite($fp,  $response);
         fclose($fp);
         if(isset($response)){
-            $response = ['response' => $response, 'url_path' => $this->getImageAttributes($image_url)];
+            $response = ['response' => $response, 'url_path' => $file_name];
             $response =  $this->prepareDownloadResponse("unsplash", $response);
         }else{
             $response = $this->prepareDownloadResponse("", "");
@@ -229,9 +231,9 @@ class Services{
     private function getImageAttributes($imagename){
         $overwrite = get_option('appsmo_gallery_overwrite_photo');
         if($overwrite){
-            $name = '/appsmo_gallery_'.$imagename.'.'.$this->getExtension();
+            $name = '/'.$this->cleanName(substr(str_replace("https://", "",$imagename), 0, 40)).'.'.$this->getExtension();
         }else{
-            $name = '/appsmo_gallery_'.date('YmdHis').'.'.$this->getExtension();
+            $name = '/appsmo_gallery_'.date('YmdHis').rand(100, 10000).'.'.$this->getExtension();
         }
 
         $attributes = ['name'=> $name];
@@ -246,5 +248,11 @@ class Services{
             return false;
         }
     }
+
+    private function cleanName($string) {
+        $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+     
+        return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+     }
    
 }

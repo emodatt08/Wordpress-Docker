@@ -18,7 +18,19 @@ $(document).ready(function(e){
     
 
     $('.appsmo-download-single-image-button').on('click', function(e) {
-        downloadImage(e);
+        downloadImage(e, "");
+    });
+
+    
+    $('.appsmo-gallery-unsplash-download-all-button').on('click', function(e) {
+        var photoDataInCache = getInLocalStorage();
+        console.log("photoDataInCache",photoDataInCache);
+        if(photoDataInCache  != ""){
+            photoDataInCache.forEach(function(photo){
+                downloadImage(e, photo.show);
+            })
+            return;
+        }     
     });
 });
 
@@ -55,10 +67,10 @@ var retrieveImage = (e) => {
 	});
 }
 
-var downloadImage = (e) => {
+var downloadImage = (e, imagesrc) => {
     var data = {
 		'action': 'appsmo_gallery_action_download',
-		'image_url': $(".appsmo-edit-image").attr('src')      
+		'image_url': (imagesrc) ? imagesrc : $(".appsmo-edit-image").attr('src')      
 	};
     console.log(data);
   

@@ -7,6 +7,7 @@
     
     <img class="appsmo-edit-image"/>
     <span class="appsmo-download-single-image-button"><i class="fa fa-download"></i> Download</span>
+    <p class="appsmo-gallery-messages"></p>
   </div>
-  <p class="appsmo-gallery-messages"></p>
+ 
 </div>
